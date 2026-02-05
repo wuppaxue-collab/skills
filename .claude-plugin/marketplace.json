@@ -1,0 +1,23 @@
+{
+  "name": "flutter-skills",
+  "owner": {
+    "name": "wuppaxue-collab",
+    "email": "wuguangjing@bjmantis.com"
+  },
+  "metadata": {
+    "description": "Flutter mobile debugging and testing skills for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "flutter-mobile-skills",
+      "description": "Flutter mobile debugging and testing skills",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./flutter-mobile-debugging",
+        "./flutter-mobile-testing"
+      ]
+    }
+  ]
+}

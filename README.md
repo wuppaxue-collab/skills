@@ -24,7 +24,53 @@
 
 ## 安装方法
 
-### 方法一：从 GitHub 克隆（推荐）
+### 方法一：添加为技能市场源（最推荐）✨
+
+像安装官方技能一样，将此仓库添加为 Claude Code 的技能市场：
+
+#### 手动添加市场源
+
+编辑 `~/.claude/plugins/known_marketplaces.json`，添加以下内容：
+
+```json
+{
+  "flutter-skills": {
+    "source": {
+      "source": "github",
+      "repo": "wuppaxue-collab/skills"
+    },
+    "installLocation": "/Users/你的用户名/.claude/plugins/marketplaces/flutter-skills",
+    "autoUpdate": true
+  }
+}
+```
+
+然后重启 Claude Code，技能会自动下载并可用。
+
+#### 使用命令添加（如果支持）
+
+```bash
+# 在 Claude Code 中执行
+/marketplace add wuppaxue-collab/skills
+```
+
+**优势：**
+- ✅ 自动更新（`autoUpdate: true`）
+- ✅ 像官方技能一样管理
+- ✅ 无需手动复制文件
+- ✅ 支持版本管理
+
+### 方法二：一键安装脚本
+
+### 方法二：一键安装脚本
+
+使用提供的安装脚本：
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/wuppaxue-collab/skills/main/install.sh)
+```
+
+### 方法三：手动克隆到技能目录
 
 直接从 GitHub 仓库安装到全局技能目录：
 
@@ -41,13 +87,7 @@ cp -r /tmp/flutter-skills/flutter-mobile-testing ~/.claude/skills/
 rm -rf /tmp/flutter-skills
 ```
 
-或者一键安装脚本：
-
-```bash
-bash <(curl -s https://raw.githubusercontent.com/wuppaxue-collab/skills/main/install.sh)
-```
-
-### 方法二：项目级安装
+### 方法四：项目级安装
 
 将技能安装到特定项目的 `.claude/skills/` 目录：
 
@@ -60,7 +100,7 @@ cp -r /tmp/flutter-skills/flutter-mobile-testing .claude/skills/
 rm -rf /tmp/flutter-skills
 ```
 
-### 方法三：手动安装
+### 方法五：直接复制
 
 如果你已经下载或克隆了仓库，可以手动复制：
 
