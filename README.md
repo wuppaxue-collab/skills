@@ -24,100 +24,25 @@
 
 ## 安装方法
 
-### 方法一：添加为技能市场源（最推荐）✨
-
 像安装官方技能一样，将此仓库添加为 Claude Code 的技能市场。
 
 **📖 详细步骤请查看 [INSTALL.md](./INSTALL.md)**
 
-简要步骤：
+**简要步骤：**
 
-1. 编辑 `~/.claude/plugins/known_marketplaces.json`
-2. 添加 flutter-skills 市场源配置
-3. 重启 Claude Code
-4. 执行 `/plugin add wuppaxue-collab/skills` 安装
+1. 编辑 `~/.claude/plugins/known_marketplaces.json` 添加市场源配置
+2. 重启 Claude Code
+3. 执行 `/plugin add wuppaxue-collab/skills` 安装
+4. 运行 `/skills list` 验证安装
 
 **优势：**
-- ✅ 自动更新（`autoUpdate: true`）
+- ✅ 自动更新
 - ✅ 像官方技能一样管理
-- ✅ 无需手动复制文件
-- ✅ 支持版本管理
-- ✅ 在所有设备上统一管理
-
-### 方法二：一键安装脚本
-
-### 方法二：一键安装脚本
-
-使用提供的安装脚本：
-
-```bash
-bash <(curl -s https://raw.githubusercontent.com/wuppaxue-collab/skills/main/install.sh)
-```
-
-### 方法三：手动克隆到技能目录
-
-直接从 GitHub 仓库安装到全局技能目录：
-
-```bash
-# 克隆仓库到临时目录
-git clone https://github.com/wuppaxue-collab/skills.git /tmp/flutter-skills
-
-# 复制技能到 Claude Code 全局目录
-mkdir -p ~/.claude/skills
-cp -r /tmp/flutter-skills/flutter-mobile-debugging ~/.claude/skills/
-cp -r /tmp/flutter-skills/flutter-mobile-testing ~/.claude/skills/
-
-# 清理临时文件
-rm -rf /tmp/flutter-skills
-```
-
-### 方法四：项目级安装
-
-将技能安装到特定项目的 `.claude/skills/` 目录：
-
-```bash
-# 在项目根目录执行
-git clone https://github.com/wuppaxue-collab/skills.git /tmp/flutter-skills
-mkdir -p .claude/skills
-cp -r /tmp/flutter-skills/flutter-mobile-debugging .claude/skills/
-cp -r /tmp/flutter-skills/flutter-mobile-testing .claude/skills/
-rm -rf /tmp/flutter-skills
-```
-
-### 方法五：直接复制
-
-如果你已经下载或克隆了仓库，可以手动复制：
-
-```bash
-# 复制到全局目录
-cp -r flutter-mobile-debugging ~/.claude/skills/
-cp -r flutter-mobile-testing ~/.claude/skills/
-
-# 或复制到项目目录
-mkdir -p .claude/skills
-cp -r flutter-mobile-debugging .claude/skills/
-cp -r flutter-mobile-testing .claude/skills/
-```
-
-### 验证安装
-
-安装完成后，重启 Claude Code 并运行：
-
-```bash
-claude code
-# 在对话中输入：
-/skills list
-```
-
-你应该能看到 `flutter-mobile-debugging` 和 `flutter-mobile-testing` 两个技能。
-
-### 更新技能
-
-如果技能有更新，重新运行安装命令即可覆盖旧版本。
+- ✅ 在所有设备上统一安装
 
 ## 使用方法
 
-安装完成后，在与 Claude Code 对话时，这些技能会自动可用。Claude 会在适当的场景下自动使用这些技能。
+安装完成后，这些技能会在 Claude Code 对话中自动可用。Claude 会在适当的场景下自动使用这些技能。
 
 **示例：**
 
@@ -127,18 +52,6 @@ Claude：[自动使用 flutter-mobile-debugging 技能读取设备日志]
 
 你：帮我测试一下登录按钮是否显示正确
 Claude：[自动使用 flutter-mobile-testing 技能进行 UI 验证]
-```
-
-## 技能文件结构
-
-每个技能目录包含一个 `SKILL.md` 文件：
-
-```
-flutter-mobile-debugging/
-└── SKILL.md          # 技能定义和使用说明
-
-flutter-mobile-testing/
-└── SKILL.md          # 技能定义和使用说明
 ```
 
 ## 前置要求
