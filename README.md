@@ -24,14 +24,27 @@
 
 ## 安装方法
 
-### 方法一：全局安装（推荐）
+### 方法一：从 GitHub 克隆（推荐）
 
-将技能安装到 Claude Code 的全局技能目录，所有项目都可以使用：
+直接从 GitHub 仓库安装到全局技能目录：
 
 ```bash
-# 复制技能到全局目录
-cp -r flutter-mobile-debugging ~/.claude/skills/
-cp -r flutter-mobile-testing ~/.claude/skills/
+# 克隆仓库到临时目录
+git clone https://github.com/wuppaxue-collab/skills.git /tmp/flutter-skills
+
+# 复制技能到 Claude Code 全局目录
+mkdir -p ~/.claude/skills
+cp -r /tmp/flutter-skills/flutter-mobile-debugging ~/.claude/skills/
+cp -r /tmp/flutter-skills/flutter-mobile-testing ~/.claude/skills/
+
+# 清理临时文件
+rm -rf /tmp/flutter-skills
+```
+
+或者一键安装脚本：
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/wuppaxue-collab/skills/main/install.sh)
 ```
 
 ### 方法二：项目级安装
@@ -40,10 +53,43 @@ cp -r flutter-mobile-testing ~/.claude/skills/
 
 ```bash
 # 在项目根目录执行
+git clone https://github.com/wuppaxue-collab/skills.git /tmp/flutter-skills
 mkdir -p .claude/skills
-cp -r /path/to/flutter-mobile-debugging .claude/skills/
-cp -r /path/to/flutter-mobile-testing .claude/skills/
+cp -r /tmp/flutter-skills/flutter-mobile-debugging .claude/skills/
+cp -r /tmp/flutter-skills/flutter-mobile-testing .claude/skills/
+rm -rf /tmp/flutter-skills
 ```
+
+### 方法三：手动安装
+
+如果你已经下载或克隆了仓库，可以手动复制：
+
+```bash
+# 复制到全局目录
+cp -r flutter-mobile-debugging ~/.claude/skills/
+cp -r flutter-mobile-testing ~/.claude/skills/
+
+# 或复制到项目目录
+mkdir -p .claude/skills
+cp -r flutter-mobile-debugging .claude/skills/
+cp -r flutter-mobile-testing .claude/skills/
+```
+
+### 验证安装
+
+安装完成后，重启 Claude Code 并运行：
+
+```bash
+claude code
+# 在对话中输入：
+/skills list
+```
+
+你应该能看到 `flutter-mobile-debugging` 和 `flutter-mobile-testing` 两个技能。
+
+### 更新技能
+
+如果技能有更新，重新运行安装命令即可覆盖旧版本。
 
 ## 使用方法
 
