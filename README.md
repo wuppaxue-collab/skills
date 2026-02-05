@@ -26,39 +26,23 @@
 
 ### 方法一：添加为技能市场源（最推荐）✨
 
-像安装官方技能一样，将此仓库添加为 Claude Code 的技能市场：
+像安装官方技能一样，将此仓库添加为 Claude Code 的技能市场。
 
-#### 手动添加市场源
+**📖 详细步骤请查看 [INSTALL.md](./INSTALL.md)**
 
-编辑 `~/.claude/plugins/known_marketplaces.json`，添加以下内容：
+简要步骤：
 
-```json
-{
-  "flutter-skills": {
-    "source": {
-      "source": "github",
-      "repo": "wuppaxue-collab/skills"
-    },
-    "installLocation": "/Users/你的用户名/.claude/plugins/marketplaces/flutter-skills",
-    "autoUpdate": true
-  }
-}
-```
-
-然后重启 Claude Code，技能会自动下载并可用。
-
-#### 使用命令添加（如果支持）
-
-```bash
-# 在 Claude Code 中执行
-/marketplace add wuppaxue-collab/skills
-```
+1. 编辑 `~/.claude/plugins/known_marketplaces.json`
+2. 添加 flutter-skills 市场源配置
+3. 重启 Claude Code
+4. 执行 `/plugin add wuppaxue-collab/skills` 安装
 
 **优势：**
 - ✅ 自动更新（`autoUpdate: true`）
 - ✅ 像官方技能一样管理
 - ✅ 无需手动复制文件
 - ✅ 支持版本管理
+- ✅ 在所有设备上统一管理
 
 ### 方法二：一键安装脚本
 
